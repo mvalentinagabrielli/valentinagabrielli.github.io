@@ -102,6 +102,23 @@ a:focus-visible, button:focus-visible {
   padding: clamp(56px, 10vw, 96px) var(--edge) 40px;
   position: relative;
 }
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 5vw, 48px);
+}
+.hero-photo {
+  flex: none;
+  width: clamp(180px, 26vw, 300px);
+  height: clamp(180px, 26vw, 300px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+.hero-text { min-width: 0; }
+@media (max-width: 560px) {
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
 .hero-eyebrow {
   font-family: var(--mono);
   font-size: 12.5px;
@@ -119,9 +136,9 @@ a:focus-visible, button:focus-visible {
   letter-spacing: -0.01em;
 }
 .hero h1 em {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ink);
 }
 .hero .role {
   font-family: var(--serif-body);
@@ -130,14 +147,6 @@ a:focus-visible, button:focus-visible {
   margin: 6px 0 28px;
   max-width: 56ch;
 }
-.hero .lede {
-  font-size: 18px;
-  max-width: 58ch;
-  margin: 0 0 32px;
-  color: var(--ink);
-}
-.hero .lede .accent-word { color: var(--accent); font-style: italic; }
-
 .hero-links {
   display: flex;
   flex-wrap: wrap;
@@ -159,38 +168,6 @@ a:focus-visible, button:focus-visible {
   color: var(--ink);
 }
 .hero-links .cta:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-/* ---- Ladder signature motif ---- */
-.ladder-motif {
-  position: absolute;
-  right: var(--edge);
-  top: clamp(40px, 8vw, 70px);
-  width: 130px;
-  height: 190px;
-  pointer-events: none;
-  opacity: 0.9;
-}
-@media (max-width: 720px) {
-  .ladder-motif { display: none; }
-}
-.ladder-motif .rung {
-  stroke: var(--line);
-  stroke-width: 1.5;
-}
-.ladder-motif .rail {
-  stroke: var(--ink-soft);
-  stroke-width: 1.5;
-  fill: none;
-}
-.ladder-motif .dot {
-  fill: var(--accent2);
-}
-.ladder-motif .step-path {
-  stroke: var(--accent);
-  stroke-width: 2;
-  fill: none;
-  stroke-dasharray: 4 4;
-}
 
 /* ============================================
    Sections
@@ -261,6 +238,17 @@ section:first-of-type { border-top: none; }
   color: var(--ink);
   margin: 0;
 }
+.research-subhead {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin: 4px 0 -6px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
 .entry .what .tag {
   display: inline-block;
   font-family: var(--mono);
@@ -273,57 +261,6 @@ section:first-of-type { border-top: none; }
   padding: 2px 7px;
   margin-bottom: 8px;
 }
-
-/* ---- Simple list sections (conferences, service) ---- */
-.plain-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.plain-list li {
-  display: grid;
-  grid-template-columns: 128px 1fr;
-  gap: 6px 22px;
-  font-size: 16px;
-}
-@media (max-width: 560px) {
-  .plain-list li { grid-template-columns: 1fr; gap: 2px; }
-}
-.plain-list .when {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-
-/* ---- Two-column meta (skills / fellowships) ---- */
-.meta-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-@media (max-width: 560px) {
-  .meta-grid { grid-template-columns: 1fr; }
-}
-.meta-grid h3 {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink-soft);
-  margin: 0 0 10px;
-  font-weight: 500;
-}
-.meta-grid ul { margin: 0; padding: 0; list-style: none; }
-.meta-grid li {
-  font-size: 15.5px;
-  padding: 6px 0;
-  border-top: 1px solid var(--line);
-}
-.meta-grid li:first-child { border-top: none; }
 
 /* ============================================
    Footer
